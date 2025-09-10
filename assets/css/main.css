@@ -4101,3 +4101,50 @@ Custom overrides by MD
 /* If your theme adds default padding to .image, zero it too */
 #two .spotlight .image{ padding: 0; }
 
+/* Who I am and How I Build*/
+
+/* little arrow under the text (matches HTML5 UP vibe) */
+#one .more.scrolly::after {
+  content: "▾";               /* down chevron; swap for SVG if you prefer */
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin-top: 6px;
+  opacity: .8;
+}
+
+/* Arrow under the text */
+#one .more.scrolly::after{
+  content: "";
+  display: block;
+  width: 18px; height: 18px;
+  margin: 8px auto 0;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  opacity: .9;
+}
+
+/* links to projects */
+/* Make the whole card clickable via the anchor's pseudo-element */
+.project-card { position: relative; }
+.project-card .stretched-link {
+  position: static; color: inherit; text-decoration: none;
+}
+.project-card .stretched-link::after {
+  content: "";
+  position: absolute; inset: 0;          /* fills the entire section */
+}
+
+/* Nice affordances */
+.project-card { cursor: pointer; }
+.project-card:hover { transform: translateY(-2px); transition: transform .2s; }
+.project-card .stretched-link:focus-visible {
+  outline: 3px solid currentColor; outline-offset: 4px;
+}
+
+/* Visually hidden utility for the screen-reader text */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,1px,1px); white-space: nowrap; border: 0;
+}
