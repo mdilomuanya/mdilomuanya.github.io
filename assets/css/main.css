@@ -4102,6 +4102,33 @@ Custom overrides by MD
 #two .spotlight .image{ padding: 0; }
 
 /* Who I am and How I Build*/
+/* Full-viewport hero */
+#one.wrapper.style1.special {
+  min-height: 100vh;      /* fallback */
+  min-height: 100svh;     /* correct on mobile with URL bar */
+  display: flex;
+  align-items: center;     /* center the .inner vertically */
+  justify-content: center; /* center horizontally */
+  position: relative;      /* for the arrow positioning */
+  padding-block: 0;        /* remove wrapper's extra top/bottom padding */
+}
+
+/* keep your content readable */
+#one .inner {
+  padding: clamp(24px, 4vw, 48px);
+  text-align: center;
+}
+
+/* bottom-centered scrolly link */
+#one .more.scrolly {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;               /* bump as you like */
+  transform: translateX(-50%);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
 
 /* little arrow under the text (matches HTML5 UP vibe) */
 #one .more.scrolly::after {
@@ -4111,6 +4138,24 @@ Custom overrides by MD
   line-height: 1;
   margin-top: 6px;
   opacity: .8;
+}
+/* Bottom-centered scrolly link (single source of truth) */
+#one .more.scrolly{
+  position: absolute;
+  left: 50%;
+  /* keep it higher from the bottom, responsive + iOS safe-area aware */
+  bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(40px, 10vh, 88px));
+  transform: translateX(-50%);
+  text-decoration: none;
+  border: 0;
+  color: inherit;
+  letter-spacing: .18em;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity .6s ease, transform .6s ease;
+  z-index: 1;
+  margin: 0;
 }
 
 /* Arrow under the text */
