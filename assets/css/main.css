@@ -4119,6 +4119,9 @@ Custom overrides by MD
   text-align: center;
 }
 
+/* space icons a bit from the paragraph */
+#one .icons.major { margin-top: 1.25rem; }
+
 /* bottom-centered scrolly link */
 #one .more.scrolly {
   position: absolute;
