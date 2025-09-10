@@ -4196,3 +4196,54 @@ Custom overrides by MD
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,1px,1px); white-space: nowrap; border: 0;
 }
+
+/* Fixing project scrolly problem*?
+/* 1) Reserve space above the arrow so content can't overlap it */
+#one .inner{
+  padding-bottom: var(--scrolly-clear, clamp(64px, 12vh, 96px));
+}
+
+/* 2) Make the icons a responsive grid so they reflow neatly */
+#one .icons.major{
+  display: grid;
+  grid-template-columns: repeat(5, 6rem);   /* desktop/tablet: 5 across */
+  justify-content: center;
+  gap: clamp(16px, 4vw, 40px);
+  margin-top: 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+/* Icon badge size */
+.icon-badge{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.icon-badge img{
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 3) Phone tweaks: shrink badges and reflow to 3×2 then 2×3 */
+@media (max-width: 800px){
+  #one .icons.major{ grid-template-columns: repeat(3, 5rem); }
+  .icon-badge{ width: 5rem; height: 5rem; }
+}
+@media (max-width: 480px){
+  #one .icons.major{
+    grid-template-columns: repeat(2, 4.25rem);
+    gap: 14px 22px;
+  }
+  .icon-badge{ width: 4.25rem; height: 4.25rem; }
+}
+
+/* (leave your existing arrow positioning) */
