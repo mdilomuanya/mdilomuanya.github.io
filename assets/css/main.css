@@ -4170,10 +4170,6 @@ Custom overrides by MD
   opacity: .9;
 }
 
-/* keep clearance for the “Projects” arrow so nothing overlaps */
-#one .inner{ padding-bottom: clamp(72px, 14vh, 108px); }
-
-
 /* links to projects */
 /* Make the whole card clickable via the anchor's pseudo-element */
 .project-card { position: relative; }
